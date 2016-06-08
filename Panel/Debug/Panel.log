@@ -1,0 +1,4 @@
+﻿  Panel.cpp
+c:\users\or amit\documents\visual studio 2015\softwareengdima\softwareeng\control.h(30): error C2535: 'Control &Control::getFocus(void)': member function already defined or declared
+  c:\users\or amit\documents\visual studio 2015\softwareengdima\softwareeng\control.h(23): note: see declaration of 'Control::getFocus'
+c:\users\or amit\documents\visual studio 2015\softwareengdima\panel\panel.cpp(6): warning C4018: '<': signed/unsigned mismatch
