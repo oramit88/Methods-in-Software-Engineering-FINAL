@@ -27,7 +27,7 @@ void EventEngine::run(Control &c)
 		{
 		case KEY_EVENT:
 		{
-			//or amit
+			//or amitt
 			auto f = Control::getFocus();
 			if ((f != nullptr) && (record.Event.KeyEvent.bKeyDown))
 			{
