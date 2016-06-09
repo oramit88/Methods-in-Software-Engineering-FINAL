@@ -15,9 +15,10 @@ int main() {
 
 #include <string>
 #include "EventEngine.h"
-//#include "TextBox.h"
+#include "../TextBox/TextBox.h"
 #include"../Label/Label.h"
 #include"../Panel/Panel.h"
+
 //#include "Button.h"
 //#include "Panel.h"
 //#include "NumericBox.h"
@@ -40,16 +41,19 @@ int main(int argc, char **argv)
 	Label lName(20);
 	lName.SetText("Name: ");
 
-	Label lAddress(20);
-	lAddress.SetText("Address:");
-	Label lCountry(20);
-	lCountry.SetText("Counrty:");
-	Label lSex(20);
-	lSex.SetText("Sex:");
-	Label lInterests(20);
-	lInterests.SetText("Interests:");
-	Label lAge(20);
-	lAge.SetText("Age:");
+	TextBox tx1(25);
+	tx1.SetText("Daria is the king");
+
+	//Label lAddress(20);
+	//lAddress.SetText("Address:");
+	//Label lCountry(20);
+	//lCountry.SetText("Counrty:");
+	//Label lSex(20);
+	//lSex.SetText("Sex:");
+	//Label lInterests(20);
+	//lInterests.SetText("Interests:");
+	//Label lAge(20);
+	//lAge.SetText("Age:");
 	
 //	TextBox tName(20);
 //	tName.setText("Sherlock Holmes");
@@ -73,13 +77,14 @@ int main(int argc, char **argv)
 //	bSubmit.setText("Submit");
 //	bSubmit.addListener(listener);
 //	bSubmit.setBorder(BorderType::Double);
-	lName.SetBorder(BorderType::Single);
-	lAddress.SetBorder(BorderType::Single);
-	lCountry.SetBorder(BorderType::Single);
+	//lName.SetBorder(BorderType::Single);
+//	lAddress.SetBorder(BorderType::Single);
+	//lCountry.SetBorder(BorderType::Single);
+	tx1.SetBorder(BorderType::Single);
 	Panel main;
-	main.AddControl(lName, 10, 3);
-	main.AddControl(lAddress, 1, 9);
-	main.AddControl(lCountry, 1, 18);
+	main.AddControl(tx1, 10, 3);
+//	main.AddControl(lAddress, 1, 9);
+//	main.AddControl(lCountry, 1, 18);
 	//main.AddControl(lSex, 1, 11);
 	//main.AddControl(lInterests, 1, 15);
 	//main.AddControl(lAge, 1, 20);
@@ -94,7 +99,7 @@ int main(int argc, char **argv)
 	main.addControl(bSubmit, 1, 22);
 */
 	//Control::setFocus(tName);
-
+	Control::setFocus(tx1);
 	EventEngine engine;
 	engine.run(main);
 //	Graphics g;

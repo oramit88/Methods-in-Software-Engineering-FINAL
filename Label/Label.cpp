@@ -10,3 +10,4 @@ void Label::draw(Graphics graphics, int left, int top, int layer) {
 Label::~Label()
 {
 }
+

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <vector>
 #include <iostream>
 #include <string>
 #include "Graphics.h"
@@ -10,34 +10,29 @@ enum class BackgroundColor { Red, Blue, Green, Purple, Teal, Yellow, White, Blac
 
 class Control
 {
+	
 protected:
 	Graphics graphics;
+	HANDLE _console = GetStdHandle(STD_OUTPUT_HANDLE);
 	BorderType _border = BorderType::None;
 	ForegroundColor _foregroundColor;
 	BackgroundColor _backgroundColor;
 	bool _isVisible;
 	bool _isFocused;
 	int _width, _height, _top, _left;
-	static Control& _inFocus;
 public:
-	static Control& getFocus() { return _inFocus; }
+	static Control* _inFocus;
+	static Control* getFocus() { return _inFocus; }
+
 	Control(int width, int height) :_width(width), _height(height) {}
 	~Control() {};
 	virtual void mousePressed() {
 
 	}
 	
-	static Control& getFocus() {
-		return _inFocus;
+	static void setFocus(Control &control) {
+		_inFocus = &control;
 	}
-
-
-	static void setFocus(Control& control) {
-		_inFocus = control;
-	}
-
-
-
 	void setTop(int top) {
 		 _top=top;
 	}
@@ -63,6 +58,11 @@ public:
 	virtual void SetBackground(BackgroundColor color) { _backgroundColor = color; }
 	virtual void SetBorder(BorderType border) { _border = border; }
 	virtual void draw(Graphics graphics,int left, int top, int layer);
+	virtual void keyDown(WORD code, CHAR chr) = 0;
+	virtual void mousePressed(int x, int y, bool ifFirstButton) = 0;
+	virtual bool canGetFocus() = 0;
+	virtual void getAllControls(vector<Control*> *controls){}
+
 
 };
 

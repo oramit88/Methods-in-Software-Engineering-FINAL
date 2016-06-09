@@ -1,3 +1,2 @@
 ﻿  Label.cpp
-c:\users\or amit\documents\visual studio 2015\softwareengdima\softwareeng\control.h(30): error C2535: 'Control &Control::getFocus(void)': member function already defined or declared
-  c:\users\or amit\documents\visual studio 2015\softwareengdima\softwareeng\control.h(23): note: see declaration of 'Control::getFocus'
+  Label.vcxproj -> C:\Users\Or Amit\Documents\Visual Studio 2015\SoftwareEngDima\Debug\Label.lib

@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Control.h"
 #include <Windows.h>
 #include <vector>
@@ -10,8 +9,7 @@ public:
 	void run(Control &c);
 	virtual ~EventEngine();
 private:
-	void moveFocus(Control &main, Control *focused);
-
+	virtual void moveFocus(Control &main, Control *focused);
 	Graphics _graphics;
 	HANDLE _console;
 	DWORD _consoleMode;

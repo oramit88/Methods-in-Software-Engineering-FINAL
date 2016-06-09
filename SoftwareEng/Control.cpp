@@ -1,5 +1,7 @@
 #include "Control.h"
 
+Control* Control::_inFocus = nullptr;
+
  void Control::draw(Graphics graphics, int left, int top, int layer) {
 	//_isComponetVisible = true;
 	//SetConsoleTextAttribute(_handle, _textColor | _backgroundColor);

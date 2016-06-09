@@ -1,2 +1,4 @@
 ﻿  TextBox.cpp
+c:\users\or amit\documents\visual studio 2015\softwareengdima\textbox\textbox.cpp(5): warning C4018: '<': signed/unsigned mismatch
+c:\users\or amit\documents\visual studio 2015\softwareengdima\textbox\textbox.cpp(18): warning C4018: '<': signed/unsigned mismatch
   TextBox.vcxproj -> C:\Users\Or Amit\Documents\Visual Studio 2015\SoftwareEngDima\Debug\TextBox.lib
