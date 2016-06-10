@@ -36,7 +36,6 @@ void EventEngine::run(Control &c)
 				if (code == VK_TAB)
 					moveFocus(c, f);
 				else {
-					//printf("fffff");
 					f->keyDown(code, chr);
 				}
 				redraw = true;
@@ -45,7 +44,6 @@ void EventEngine::run(Control &c)
 		}
 		case MOUSE_EVENT:
 		{
-			//printf("mouse");
 			auto button = record.Event.MouseEvent.dwButtonState;
 			auto coord = record.Event.MouseEvent.dwMousePosition;
 			auto x = coord.X - c.getLeft();

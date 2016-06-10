@@ -18,7 +18,11 @@ public:
 	 void getAllControls(vector<Control*> *controls);
 
 	 void keyDown(WORD code, CHAR chr) {};
-	 void mousePressed(int x, int y, bool ifFirstButton) {};
+	 void mousePressed(int x, int y, bool ifFirstButton) {
+		 for (int i = 0; i < controlArray.size();i++) {
+			 controlArray[i]->mousePressed(x, y, ifFirstButton);
+		 }
+	 };
 	 bool canGetFocus() { return false; }
 
 	~Panel();

@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <sstream>	// for testing
 #include "Graphics.h"
 using namespace std;
 enum class BorderType { Single, Double, None };
@@ -19,19 +20,18 @@ protected:
 	BackgroundColor _backgroundColor;
 	bool _isVisible;
 	bool _isFocused;
-	int _width, _height, _top, _left;
-public:
+	int _width, _height,_top,_left;
 	static Control* _inFocus;
+public:
+
 	static Control* getFocus() { return _inFocus; }
 
-	Control(int width, int height) :_width(width), _height(height) {}
+	Control(int width, int height) :_width(width), _height(height), _top(0),_left(0){}
 	~Control() {};
-	virtual void mousePressed() {
-
-	}
-	
+	virtual void moveCursorToFocusedControl(){}
 	static void setFocus(Control &control) {
 		_inFocus = &control;
+		_inFocus->moveCursorToFocusedControl();
 	}
 	void setTop(int top) {
 		 _top=top;
@@ -63,6 +63,22 @@ public:
 	virtual bool canGetFocus() = 0;
 	virtual void getAllControls(vector<Control*> *controls){}
 
+
+	/* for debaging*/
+	void debag(Graphics _graphics, int text) {
+		_graphics.moveTo(15, 15);
+		stringstream ss;
+		ss << text << "";
+		_graphics.write(ss.str());
+		getchar();
+	}
+	void debag(Graphics _graphics, string text) {
+		_graphics.moveTo(15, 15);
+		stringstream ss;
+		ss << text << "";
+		_graphics.write(ss.str());
+		getchar();
+	}
 
 };
 
