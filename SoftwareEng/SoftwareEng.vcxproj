@@ -153,11 +153,26 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Checklist\Checklist.vcxproj">
+      <Project>{62ca5217-05ab-4dc8-b75d-4930aeca7528}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ComboBox\ComboBox.vcxproj">
+      <Project>{5addfb0b-2ffb-4046-9339-5f516f6643d5}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Label\Label.vcxproj">
       <Project>{09c31c73-c668-4f40-b060-062bf3e382f4}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\MessageBox\MessageBox.vcxproj">
+      <Project>{5e362bd7-94d9-43a1-af02-1ed7efe4ef2e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\NumericBox\NumericBox.vcxproj">
+      <Project>{5789be05-54bf-4522-b8c2-0e6500c34d8b}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Panel\Panel.vcxproj">
       <Project>{95bbea69-9f19-4f27-beea-fd05088c47bb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Radiolist\Radiolist.vcxproj">
+      <Project>{bd5f2a6e-0b36-4ba5-84d0-720feaf57b6b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\TextBox\TextBox.vcxproj">
       <Project>{8e6817bb-add6-4a2c-a215-b3c873d09703}</Project>
