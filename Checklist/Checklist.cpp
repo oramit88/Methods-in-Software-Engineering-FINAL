@@ -11,7 +11,6 @@ void Checklist::draw(Graphics graphics, int left, int top, int layer) {	//TODO C
 		graphics.write(_options[i]);
 		graphics.moveTo(left + _left + 1, top + _top + i + 2);
 	}
-	moveCursorToFocusedControl();
 	/*
 	Component::draw();
 	CONSOLE_CURSOR_INFO cci = { 100, TRUE };
@@ -88,7 +87,7 @@ void Checklist::mousePressed(int x, int y, bool ifFirstButton) {
 		x != _left + panelLeft + 2) {
 		return;
 	}
-
+//	Control::setFocus(this);
 	int pressed = y - panelTop - 2;	
 	if (pressed >= _options.size()) {
 		return;

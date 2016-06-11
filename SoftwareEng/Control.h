@@ -28,10 +28,9 @@ public:
 
 	Control(int width, int height) :_width(width), _height(height), _top(0),_left(0){}
 	~Control() {};
-	virtual void moveCursorToFocusedControl(){}
 	static void setFocus(Control &control) {
 		_inFocus = &control;
-		_inFocus->moveCursorToFocusedControl();
+		_inFocus->nowInFocus();
 	}
 	void setTop(int top) {
 		 _top=top;
@@ -61,7 +60,8 @@ public:
 	virtual void keyDown(WORD code, CHAR chr) = 0;
 	virtual void mousePressed(int x, int y, bool ifFirstButton) = 0;
 	virtual bool canGetFocus() = 0;
-	virtual void getAllControls(vector<Control*> *controls){}
+	virtual void getAllControls(vector<Control*> *controls){ controls->push_back(this);}
+	virtual void nowInFocus(){}
 
 
 	/* for debaging*/

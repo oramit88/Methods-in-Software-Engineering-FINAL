@@ -25,8 +25,8 @@ public:
 		cursorPosX = _left +2;
 		cursorPosY = _top + 1;
 	}
-	 void moveCursorToFocusedControl() {
-		 _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
+	 void nowInFocus() {
+	    _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
 		_graphics.setCursorVisibility(true);
 	}
 

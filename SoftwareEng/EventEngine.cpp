@@ -18,6 +18,7 @@ void EventEngine::run(Control &c)
 			for (size_t p = 0; p < 5; ++p)
 				c.draw(_graphics, 0, 0, p);
 			redraw = false;
+			Control::getFocus()->nowInFocus();
 		}
 
 		INPUT_RECORD record;
@@ -27,7 +28,6 @@ void EventEngine::run(Control &c)
 		{
 		case KEY_EVENT:
 		{
-			
 			auto f = Control::getFocus();
 			if ((f != nullptr) && (record.Event.KeyEvent.bKeyDown))
 			{
@@ -56,7 +56,6 @@ void EventEngine::run(Control &c)
 			break;
 		}
 		default:
-			//printf("default");
 			break;
 		}
 	}
@@ -71,6 +70,7 @@ void EventEngine::moveFocus(Control &main, Control *focused)
 {
 	vector<Control*> controls;
 	main.getAllControls(&controls); //fill in recursive way the controls vector
+	//main.debag(_graphics, controls.size());
 	auto it = find(controls.begin(), controls.end(), focused);
 	do
 		if (++it == controls.end())
