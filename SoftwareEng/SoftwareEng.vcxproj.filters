@@ -24,6 +24,9 @@
     <ClInclude Include="EventEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MouseListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Control.cpp">

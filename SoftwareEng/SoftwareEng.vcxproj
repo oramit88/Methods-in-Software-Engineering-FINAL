@@ -145,6 +145,7 @@
     <ClInclude Include="Control.h" />
     <ClInclude Include="EventEngine.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="MouseListener.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Control.cpp" />
@@ -153,6 +154,9 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Button\Button.vcxproj">
+      <Project>{e417804a-5c13-41ab-9ad2-d0d64959c18b}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Checklist\Checklist.vcxproj">
       <Project>{62ca5217-05ab-4dc8-b75d-4930aeca7528}</Project>
     </ProjectReference>
