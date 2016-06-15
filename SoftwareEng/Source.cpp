@@ -7,6 +7,7 @@
 #include "../Checklist/Checklist.h"
 #include "../Radiolist/Radiolist.h"
 #include "../Button/Button.h"
+#include "../ComboBox/ComboBox.h"
 #include "MouseListener.h"
 #include "Graphics.h"
 using namespace std;
@@ -30,7 +31,7 @@ int main(int argc, char **argv)
 	Radiolist rSex(6, 15, { "Male", "Female" });
 	rSex.SetBorder(BorderType::Single);
 	Checklist clInterests(6, 15, { "Sports", "Books", "Movies" });
-	Checklist clInterests2(6, 15, { "Sports", "Books", "Movies" });
+	ComboBox clInterests2(30, { "select hobbies:", "Sports", "Books", "Movies" });
 	clInterests.SelectIndex(1);
 	clInterests.SetBorder(BorderType::Single);
 	clInterests2.SetBorder(BorderType::Double);
@@ -42,7 +43,7 @@ int main(int argc, char **argv)
 	Panel main;
 	main.AddControl(lName, 6, 10);
 	main.AddControl(rSex, 1, 1);
-	main.AddControl(clInterests, 10, 1);
+	//main.AddControl(clInterests, 10, 1);
 	main.AddControl(clInterests2, 25, 1);
 	main.AddControl(bSubmit, 20, 8);
 	Control::setFocus(rSex);
