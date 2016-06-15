@@ -46,12 +46,13 @@ void Checklist::draw(Graphics graphics, int left, int top, int layer) {	//TODO C
 }
 void Checklist::keyDown(WORD code, CHAR chr) {
 	if (code == 0x46) { // F key for debaging
-		_graphics.moveTo(15, 15);
-		stringstream ss;
-		for (int i = 0; i < _selectedIndices.size();i++) {
-			ss << _selectedIndices[i] << ",";
-			_graphics.write(ss.str());
+		string str = "";
+		vector<size_t> temp = GetSelectedIndices();
+	_graphics.moveTo(20, 20);
+		for (int i = 0; i < temp.size();i++) {
+			cout << temp[i] << endl;
 		}
+
 		getchar();
 	}
 	switch (code) {
@@ -105,12 +106,24 @@ void Checklist::DeselectIndex(size_t index){
 	selectOption();
 }
 void  Checklist::selectOption() {
+	if (optionsSelected[logicalPosition]) {
+		optionsSelected[logicalPosition] = false;
+		_graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
+		_options[logicalPosition].replace(1, 1, " ");
+	}
+	else {
+		_graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
+		_options[logicalPosition].replace(1, 1, "X");
+		optionsSelected[logicalPosition] = true;
+	}
+	/*
 	if (indexInVector()) {
 		_graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
 		_options[logicalPosition].replace(1, 1, " ");
 		for (int i = 0; i < _selectedIndices.size();i++) {// BAG 
 			if (_selectedIndices[i] == logicalPosition) {
 				_selectedIndices.erase(_selectedIndices.begin() + i);
+				return;
 			}
 		}
 	}
@@ -119,15 +132,28 @@ void  Checklist::selectOption() {
 		_options[logicalPosition].replace(1, 1, "X");
 		_selectedIndices.push_back(logicalPosition);
 	}
+	*/
 }
 
 bool Checklist::indexInVector() {
+	/*
 	for (int i = 0; i < _selectedIndices.size();i++) {
 		if (_selectedIndices[i] == logicalPosition) {
 			return true;
 		}
 	}
 	return false;
+	*/
+	return optionsSelected[logicalPosition];
+}
+vector<size_t> Checklist::GetSelectedIndices() { 
+	vector<size_t> result;
+	for (int i = 0; i < optionsSelected.size();i++) {
+		if (optionsSelected[i] == true) {
+			result.push_back(i);
+		}	
+	}
+	return result;
 }
 
 Checklist::~Checklist()

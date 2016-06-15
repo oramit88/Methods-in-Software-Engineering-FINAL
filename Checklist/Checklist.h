@@ -6,8 +6,9 @@ class Checklist : public Control
 
 ;
 protected:
-	vector<size_t> _selectedIndices;
+	//vector<size_t> _selectedIndices;
 	vector <string> _options;
+	vector <bool> optionsSelected;
 	int logicalPosition = 0;
 	int cursorPosX;
 	int cursorPosY;
@@ -24,6 +25,7 @@ public:
 		}
 		cursorPosX = _left +2;
 		cursorPosY = _top + 1;
+		optionsSelected = vector<bool>(options.size());
 	}
 	 void nowInFocus() {
 	    _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
@@ -32,7 +34,7 @@ public:
 
 	void SelectIndex(size_t index);
 	void DeselectIndex(size_t index);
-	vector<size_t> GetSelectedIndices() { return _selectedIndices; }
+	vector<size_t> GetSelectedIndices();
 	 void draw(Graphics graphics, int left, int top, int layer);
 	 void keyDown(WORD code, CHAR chr);
 	 void mousePressed(int x, int y, bool ifFirstButton) ;
