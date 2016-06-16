@@ -10,6 +10,7 @@
 #include "../ComboBox/ComboBox.h"
 #include "MouseListener.h"
 #include "Graphics.h"
+#include"../MessageBox/MessageBoxx.h"
 using namespace std;
 Graphics graphics;
 class MyListener : public MouseListener
@@ -25,6 +26,11 @@ private:
 };
 int main(int argc, char **argv)
 {
+	MessageBoxx msgBox(8, 20);
+	msgBox.SetBorder(BorderType::Single);
+	msgBox.SetTitle("MegBox Title");
+	msgBox.SetText("My MegBox Text");
+
 	Label lName(20);
 	lName.SetText("Name: ");
 	lName.SetBorder(BorderType::Single);
@@ -43,6 +49,7 @@ int main(int argc, char **argv)
 	Panel main;
 	main.AddControl(lName, 6, 10);
 	main.AddControl(rSex, 1, 1);
+	main.AddControl(msgBox, 15, 15);
 	//main.AddControl(clInterests, 10, 1);
 	main.AddControl(clInterests2, 25, 1);
 	main.AddControl(bSubmit, 20, 8);

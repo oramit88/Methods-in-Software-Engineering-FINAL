@@ -32,6 +32,10 @@ public:
 		_inFocus = &control;
 		_inFocus->nowInFocus();
 	}
+
+	int getWidth() {
+		return _width;
+	}
 	void setTop(int top) {
 		 _top=top;
 	}
@@ -53,6 +57,8 @@ public:
 	virtual void Hide() {
 		_isVisible = false;
 	}
+
+
 	virtual void SetForeground(ForegroundColor color) { _foregroundColor = color; }
 	virtual void SetBackground(BackgroundColor color) { _backgroundColor = color; }
 	virtual void SetBorder(BorderType border) { _border = border; }
