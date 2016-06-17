@@ -18,6 +18,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="MessageBoxx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,4 +28,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+=======
+    <ClInclude Include="MessageBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MessageBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+>>>>>>> d9b1bcf2e745e7573b4ba23f428e48e86b21f68c
 </Project>

@@ -1,3 +1,9 @@
 ﻿  TextBox.cpp
+<<<<<<< HEAD
 c:\users\dev\desktop\methods-in-software-engineering-final-master\textbox\textbox.cpp(5): warning C4018: '<': signed/unsigned mismatch
   TextBox.vcxproj -> C:\Users\DEV\Desktop\Methods-in-Software-Engineering-FINAL-master\Debug\TextBox.lib
+=======
+c:\users\or amit\documents\visual studio 2015\softwareengdima\textbox\textbox.cpp(5): warning C4018: '<': signed/unsigned mismatch
+c:\users\or amit\documents\visual studio 2015\softwareengdima\textbox\textbox.cpp(18): warning C4018: '<': signed/unsigned mismatch
+  TextBox.vcxproj -> C:\Users\Or Amit\Documents\Visual Studio 2015\SoftwareEngDima\Debug\TextBox.lib
+>>>>>>> d9b1bcf2e745e7573b4ba23f428e48e86b21f68c

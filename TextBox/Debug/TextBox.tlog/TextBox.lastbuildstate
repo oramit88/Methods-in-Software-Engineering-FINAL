@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
+<<<<<<< HEAD
 Debug|Win32|C:\Users\DEV\Desktop\Methods-in-Software-Engineering-FINAL-master\|
+=======
+Debug|Win32|C:\Users\Or Amit\Documents\Visual Studio 2015\SoftwareEngDima\|
+>>>>>>> d9b1bcf2e745e7573b4ba23f428e48e86b21f68c

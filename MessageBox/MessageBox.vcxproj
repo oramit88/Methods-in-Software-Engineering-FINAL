@@ -130,10 +130,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="MessageBoxx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageBoxx.h" />
+=======
+    <ClInclude Include="MessageBox.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MessageBox.cpp" />
+>>>>>>> d9b1bcf2e745e7573b4ba23f428e48e86b21f68c
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
