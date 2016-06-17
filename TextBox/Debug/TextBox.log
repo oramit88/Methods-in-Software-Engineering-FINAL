@@ -1,0 +1,3 @@
+﻿  TextBox.cpp
+c:\users\dev\desktop\methods-in-software-engineering-final-master\textbox\textbox.cpp(5): warning C4018: '<': signed/unsigned mismatch
+  TextBox.vcxproj -> C:\Users\DEV\Desktop\Methods-in-Software-Engineering-FINAL-master\Debug\TextBox.lib

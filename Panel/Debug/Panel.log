@@ -1,0 +1,4 @@
+﻿  Panel.cpp
+c:\users\dev\desktop\methods-in-software-engineering-final-master\panel\panel.h(22): warning C4018: '<': signed/unsigned mismatch
+c:\users\dev\desktop\methods-in-software-engineering-final-master\panel\panel.cpp(6): warning C4018: '<': signed/unsigned mismatch
+  Panel.vcxproj -> C:\Users\DEV\Desktop\Methods-in-Software-Engineering-FINAL-master\Debug\Panel.lib
