@@ -1,6 +1,0 @@
-﻿  Checklist.cpp
-c:\users\dev\desktop\methods-in-software-engineering-final-master\checklist\checklist.cpp(52): warning C4018: '<': signed/unsigned mismatch
-c:\users\dev\desktop\methods-in-software-engineering-final-master\checklist\checklist.cpp(70): warning C4018: '<': signed/unsigned mismatch
-c:\users\dev\desktop\methods-in-software-engineering-final-master\checklist\checklist.cpp(93): warning C4018: '>=': signed/unsigned mismatch
-c:\users\dev\desktop\methods-in-software-engineering-final-master\checklist\checklist.cpp(151): warning C4018: '<': signed/unsigned mismatch
-  Checklist.vcxproj -> C:\Users\DEV\Desktop\Methods-in-Software-Engineering-FINAL-master\Debug\Checklist.lib

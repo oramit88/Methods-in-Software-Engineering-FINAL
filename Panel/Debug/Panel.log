@@ -1,9 +1,0 @@
-﻿  Panel.cpp
-<<<<<<< HEAD
-c:\users\dev\desktop\methods-in-software-engineering-final-master\panel\panel.h(22): warning C4018: '<': signed/unsigned mismatch
-c:\users\dev\desktop\methods-in-software-engineering-final-master\panel\panel.cpp(6): warning C4018: '<': signed/unsigned mismatch
-  Panel.vcxproj -> C:\Users\DEV\Desktop\Methods-in-Software-Engineering-FINAL-master\Debug\Panel.lib
-=======
-c:\users\or amit\documents\visual studio 2015\softwareengdima\panel\panel.cpp(6): warning C4018: '<': signed/unsigned mismatch
-  Panel.vcxproj -> C:\Users\Or Amit\Documents\Visual Studio 2015\SoftwareEngDima\Debug\Panel.lib
->>>>>>> d9b1bcf2e745e7573b4ba23f428e48e86b21f68c
