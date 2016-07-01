@@ -91,8 +91,9 @@ void Checklist::mousePressed(int x, int y, bool ifFirstButton) {
 		x != _left + panelLeft + 2) {
 		return;
 	}
+//	debag(_graphics, "ok");
 //	Control::setFocus(this);
-	int pressed = y - panelTop - 2;	
+	int pressed = y - panelTop - _top - 1;
 	if (pressed >= _options.size()) {
 		return;
 	}
