@@ -9,6 +9,9 @@ void Button::mousePressed(int x, int y, bool ifFirstButton) {
 	}
 }
 void Button::draw(Graphics graphics, int left, int top, int layer) {
+	if (layer != getZIndex()) {
+		return;
+	}
 	Label::draw(graphics, _left + left, _top + top, layer);
 	panelLeft = left;
 	panelTop = top;

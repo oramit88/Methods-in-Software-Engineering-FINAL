@@ -32,7 +32,6 @@ int main(int argc, char **argv)
 {
 	Label lName(20);
 	lName.SetText("Name: ");
-
 	Label lAddress(20);
 	lAddress.SetText("Address:");
 	Label lCountry(20);
@@ -57,6 +56,8 @@ int main(int argc, char **argv)
 	Checklist clInterests(6, 15, { "Sports", "Books", "Movies" });
 	clInterests.SelectIndex(1);
 	clInterests.SetBorder(BorderType::Single);
+	MessageBoxx messageBox(20, 20);
+	messageBox.SetBorder(BorderType::Single);
 	//NumericBox nAge(15, 18, 120);
 	//nAge.setValue(23);
 	//nAge.setBorder(BorderType::Single);
@@ -77,6 +78,7 @@ int main(int argc, char **argv)
 	main.AddControl(cCountry, 10, 8);
 	main.AddControl(rSex, 10, 11);
 	main.AddControl(clInterests, 10, 15);
+	main.AddControl(messageBox, 15, 15);
 	//main.AddControl(nAge, 25, 20);
 
 	main.AddControl(bSubmit, 1, 15);

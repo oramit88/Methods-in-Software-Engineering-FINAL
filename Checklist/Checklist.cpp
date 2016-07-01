@@ -2,6 +2,9 @@
 
 
 void Checklist::draw(Graphics graphics, int left, int top, int layer) {	//TODO COLORS
+	if (layer != getZIndex()) {
+		return;
+	}
 	Control::draw(graphics, _left + left, _top + top, layer);
 	panelLeft = left;
 	panelTop = top;

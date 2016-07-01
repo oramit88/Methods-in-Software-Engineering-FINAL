@@ -60,8 +60,10 @@ void TextBox::keyDown(WORD code, CHAR c) {
 
 
 void  TextBox::draw(Graphics graphics, int left, int top, int layer) {
+	if (layer != getZIndex()) {
+		return;
+	}
 	Control::draw(graphics, left, top, layer);
-
 	graphics.setCursorVisibility(true);
 	graphics.write(left + 1, top + 1, _value);
 	graphics.moveTo(left + 1 + _value.size(), top + 1);

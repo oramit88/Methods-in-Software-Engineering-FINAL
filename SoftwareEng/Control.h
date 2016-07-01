@@ -11,16 +11,19 @@ enum class BackgroundColor { Red, Blue, Green, Purple, Teal, Yellow, White, Blac
 
 class Control
 {
-	
+	int _zIndex = 1;
+	bool _isVisible;
+	bool _isFocused;
+	ForegroundColor _foregroundColor;
+	BackgroundColor _backgroundColor;
 protected:
 	Graphics graphics;
 	HANDLE _console = GetStdHandle(STD_OUTPUT_HANDLE);
 	BorderType _border = BorderType::None;
-	ForegroundColor _foregroundColor;
-	BackgroundColor _backgroundColor;
-	bool _isVisible;
-	bool _isFocused;
+
+
 	int _width, _height,_top,_left;
+	
 	static Control* _inFocus;
 public:
 
@@ -32,7 +35,12 @@ public:
 		_inFocus = &control;
 		_inFocus->nowInFocus();
 	}
-
+	int getZIndex() {
+		return _zIndex;
+	}
+	void setZIndex(int zIndex) {
+		_zIndex = zIndex;
+	}
 	int getWidth() {
 		return _width;
 	}

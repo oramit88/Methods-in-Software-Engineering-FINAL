@@ -12,6 +12,9 @@ void ComboBox::mousePressed(int x, int y, bool ifFirstButton) {
 }
 
 void ComboBox::draw(Graphics graphics, int left, int top, int layer) {
+	if (layer != getZIndex()) {
+		return;
+	}
 	panelLeft = left;
 	panelTop = top;
 	//Control::draw(graphics, left, top, layer);

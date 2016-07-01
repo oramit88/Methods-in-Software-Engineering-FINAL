@@ -35,6 +35,9 @@ protected:
 	Button _ok, _cancelled; //dima
 public:
 	MessageBoxx(int height, int width) :Control(width, height), _ok(4), _cancelled(10) {
+		setZIndex(4);
+		_ok.setZIndex(5);
+		_cancelled.setZIndex(5);
 		_ok.SetText("OK");
 		_ok.SetBorder(BorderType::Single);
 		_cancelled.SetText("Cancel");
