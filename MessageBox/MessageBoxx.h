@@ -1,51 +1,63 @@
 #pragma once
 #include "../SoftwareEng/Control.h"
 #include "../Button/Button.h"
+#include "../Panel/Panel.h"
 
 class OnClickOk : public MouseListener
 {
 public:
-	OnClickOk(Control &c) : _c(c) { }
+	OnClickOk() { }
 	void MousePressed(int x, int y, bool isLeft)
 	{
-		_c.SetBorder(BorderType::None);
+		cout << "OK";
+		getchar();
+	
 	}
 private:
-	Control &_c;
 };
 
 class OnClickCancel : public MouseListener
 {
 public:
-	OnClickCancel() {}
-	void MousePressed(int x, int y, bool isLeft)
-	{
-
+	bool flag = true;
+	void MousePressed(int x, int y, bool isLeft) {
+		if (flag) {
+			flag = false;
+		}
 	}
+private:
 };
 
 
 
-class MessageBoxx :public Control
+class MessageBoxx :public Panel
 {
 private:
 	string _title;
 	string _text;
+	OnClickOk ok;
+	OnClickCancel cancel;
 protected:
 	Button _ok, _cancelled; //dima
 public:
-	MessageBoxx(int height, int width) :Control(width, height), _ok(4), _cancelled(10) {
+	MessageBoxx(int height, int width) :Panel(width, height), _ok(4), _cancelled(10) {
 		setZIndex(4);
 		_ok.setZIndex(5);
-		_cancelled.setZIndex(5);
 		_ok.SetText("OK");
+		
 		_ok.SetBorder(BorderType::Single);
-		_cancelled.SetText("Cancel");
-		_cancelled.SetBorder(BorderType::Single);
-		OnClickOk ok(_cancelled);
 		_ok.AddListener(ok);
-		OnClickCancel cancel;
+		//_ok.setLeft(_left);
+		//_ok.setTop(_top + 3);
+		Panel::AddControl(_ok, getLeft(), getTop() + 1);
+
+		//_cancelled.setLeft(_left + _width - 1 - _cancelled.getWidth());
+		//_cancelled.setTop(_top + 3);
+		_cancelled.SetText("Cancel");
+		_cancelled.setZIndex(5);
+		_cancelled.SetBorder(BorderType::Single);
 		_cancelled.AddListener(cancel);
+		Panel::AddControl(_cancelled, getLeft()+3, getTop()+1 );
 	}
 	void draw(Graphics graphics, int left, int top, int layer);
 	void SetText(string text) { _text = text; }

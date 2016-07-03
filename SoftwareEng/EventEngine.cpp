@@ -15,7 +15,7 @@ void EventEngine::run(Control &c)
 		{
 			_graphics.clearScreen();
 			_graphics.setCursorVisibility(false);
-			for (size_t p = 0; p < 5; ++p)
+			for (size_t p = 0; p < 6; ++p)
 				c.draw(_graphics, 0, 0, p);
 			redraw = false;
 			Control::getFocus()->nowInFocus();

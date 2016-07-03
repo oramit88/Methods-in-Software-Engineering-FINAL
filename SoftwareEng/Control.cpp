@@ -37,7 +37,7 @@ Control* Control::_inFocus = nullptr;
 			borderCharHorizontal = " ";
 		}
 	}
-
+	
 	for (int rows = 0; rows <_height; rows++) {
 		for (int col = 0; col < _width; col++) {
 			if (col == 0 || col == (_width - 1) || rows == 0 || (rows == _height - 1)) {
