@@ -5,15 +5,15 @@
 
 class OnClickOk : public MouseListener
 {
-public:
-	OnClickOk() { }
-	void MousePressed(int x, int y, bool isLeft)
-	{
-		cout << "OK";
-		getchar();
+	public:
+		OnClickOk() { }
+		void MousePressed(int x, int y, bool isLeft)
+		{
+			cout << "OK";
+			getchar();
 	
-	}
-private:
+		}
+	private:
 };
 
 class OnClickCancel : public MouseListener
@@ -32,13 +32,14 @@ private:
 
 class MessageBoxx :public Panel
 {
+
 private:
 	string _title;
 	string _text;
 	OnClickOk ok;
 	OnClickCancel cancel;
 protected:
-	Button _ok, _cancelled; //dima
+	Button _ok, _cancelled; 
 public:
 	MessageBoxx(int height, int width) :Panel(width, height), _ok(4), _cancelled(10) {
 		setZIndex(4);

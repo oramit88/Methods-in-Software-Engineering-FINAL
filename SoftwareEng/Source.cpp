@@ -11,6 +11,7 @@
 #include "MouseListener.h"
 #include "Graphics.h"
 #include"../MessageBox/MessageBoxx.h"
+#include"../NumericBox/NumericBox.h"
 #include <string>
 #include "EventEngine.h"
 
@@ -30,13 +31,15 @@ private:
 };
 int main(int argc, char **argv)
 {
+	Panel main(60, 60);
+	main.SetBorder(BorderType::Single); //for testing
+	
 	//NumericBox nAge(15, 18, 120);
 	//nAge.setValue(23);
 	//nAge.setBorder(BorderType::Single);
 
 
-	Panel main(60,60);
-	main.SetBorder(BorderType::Single);
+
 	//Label lName(20);
 	//lName.SetText("Name: ");
 	//main.AddControl(lName, 1, 2);
@@ -99,11 +102,19 @@ int main(int argc, char **argv)
 	//main.AddControl(bSubmit, 1, 15);
 	
 	
-	MessageBoxx msgBox(25, 8);
-	msgBox.SetTitle("msgBox TITLE:");
-	msgBox.SetText("this is my msgBox");
-	msgBox.SetBorder(BorderType::Single);
-	main.AddControl(msgBox, 0, 10);
+	//MessageBoxx msgBox(25, 8);
+	//msgBox.SetTitle("msgBox TITLE:");
+	//msgBox.SetText("this is my msgBox");
+	//msgBox.SetBorder(BorderType::Single);
+	//main.AddControl(msgBox, 0, 10);
+	
+	
+	NumericBox numBox(15, 8,20);
+	numBox.SetValue(88);
+	numBox.SetBorder(BorderType::Single);
+	
+	
+	main.AddControl(numBox, 0, 10);
 
 	Control::setFocus(main);
 	EventEngine engine;

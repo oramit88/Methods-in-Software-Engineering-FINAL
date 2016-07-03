@@ -5,7 +5,6 @@ class Panel: public Control
 {
 	vector<Control*> controlArray;
 
-
 public:
 	Panel() :Control(0, 0) {}
 	Panel(int height, int width):Control(width,height){}
