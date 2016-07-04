@@ -11,8 +11,6 @@ class OnClickPlus : public MouseListener
 			void MousePressed(int x, int y, bool isLeft)
 			{
 				needToAdd = true;
-				currentNum++;
-
 			}
 		private:
 };
@@ -24,19 +22,15 @@ class OnClickMinus : public MouseListener
 			int currentNum;
 			void MousePressed(int x, int y, bool isLeft) {
 				needToReduce = true;
-				currentNum--;
 			}	
 		private:
 };
 
 
-
-
-
 class NumericBox :public Panel
 {
 private:
-	int _val,_maxVal;
+	int _val,_maxVal,_minVal;
 	OnClickPlus plus;
 	OnClickMinus minus;
 protected:
@@ -44,7 +38,7 @@ protected:
 
 
 public:
-	NumericBox(int height, int width,int maxVal) :Panel(width, height), _plus(3), _minus(3),_maxVal(maxVal) {
+	NumericBox(int width, int min,int maxVal) :Panel(8, width), _plus(3), _minus(3),_minVal(min), _maxVal(maxVal){
 		setZIndex(4);
 		_plus.setZIndex(5);
 		_plus.SetText("+");
@@ -62,11 +56,9 @@ public:
 		Panel::AddControl(_minus, getLeft() + 3, getTop() + 1);
 	}
 	void draw(Graphics graphics, int left, int top, int layer);
-	void SetValue(int val) { 
-		_val = val;
-		minus.currentNum = _val;
-		plus.currentNum = _val;
-	}
+	void SetValue(int val);
+	void SetMaxValue(int val) { _maxVal = val; }
+	void SetMinValue(int val) { _minVal = val; }
 	int GetValue() {return _val; }
 	void keyDown(WORD code, CHAR chr) {};
 	void mousePressed(int x, int y, bool ifFirstButton);

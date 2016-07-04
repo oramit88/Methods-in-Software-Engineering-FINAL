@@ -109,11 +109,9 @@ int main(int argc, char **argv)
 	//main.AddControl(msgBox, 0, 10);
 	
 	
-	NumericBox numBox(15, 8,20);
-	numBox.SetValue(88);
+	NumericBox numBox(15, 0,20); //(width,minVal,maxVal)
+	numBox.SetValue(10);//set the current value
 	numBox.SetBorder(BorderType::Single);
-	
-	
 	main.AddControl(numBox, 0, 10);
 
 	Control::setFocus(main);
