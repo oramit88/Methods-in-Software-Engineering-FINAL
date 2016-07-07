@@ -1,64 +1,72 @@
 #include "TextBox.h"
 
 void TextBox::keyDown(WORD code, CHAR c) {
-
+	if (code == 0x46) { // F key for debaging
+		string str = "";
+		_graphics.write(10, 10, _value);
+		getchar();
+	}
 	if (_value.size() < _width - 2) {
 		if (c >= ' ' && c <= '~') {
 			cout << c;
-			_value += c;
+			if (_value.size() == logicalPosition - 1) {
+				_value += c;
+			}
+			else {
+				char temp[] = { c };
+				_value.insert(logicalPosition, temp, 1);
+			}
 			graphics.moveTo(_left + 1 + _value.size(), _top + 1);
+			logicalPosition++;
 			return;
 		}
 	}
 
 	switch (code) {
 	case VK_RIGHT: {
-		
-		logicalPosition = _value.size();
-		if (logicalPosition < _width - 2) {
-			logicalPosition++;
 
-			graphics.moveTo(_left + 1 + logicalPosition, _top + 2);
+		if (_value.size() < _width - 3) {
+			logicalPosition++;
+			_value += " ";
+			graphics.moveTo(_left + 1 + _value.size(), _top + 2);
 		}
-		getchar();
 		break;
 	}
 	case VK_LEFT: {
-
-		logicalPosition = _value.size();
-		if (logicalPosition > _width - 2) {
+		if (logicalPosition > 1) {
 			logicalPosition--;
-			graphics.moveTo(_left + 1 + logicalPosition, _top + 2);
-
+			graphics.moveTo(_left + 1 + _value.size(), _top + 2);
 		}
-		//	COORD startCord = _position.getStartCord();
-		//	startCord.X++;
-		//	if (position.X > startCord.X) {
-		//		position.X--;
-		//		SetConsoleCursorPosition(_handle, position);
-
-
 		break;
 	}
+
 	case VK_BACK: {
-		logicalPosition = _left + 2;
-		if (_value.size() != 0) {
-			_value.pop_back();
+		if (logicalPosition  > 0) {
 			logicalPosition--;
-			graphics.moveTo(_left + 1 + logicalPosition, _top + 2);
-			cout << " ";
-			
+			_value.erase(logicalPosition - 1, 1);
+		}
+		break;
+	}
+
+
+	case VK_DELETE: {
+		if (logicalPosition > 0) {
+
+			_value.erase(logicalPosition, 1);
 		}
 		break;
 	}
 
 	}
 }
-//void TextBox::mouseEvent(MOUSE_EVENT_RECORD mouseEvent) {
-
-//}
 
 
+void TextBox::mousePressed(int x, int y, bool ifFirstButton) {
+	if (!ifFirstButton || !isInside(x, y, _left + panelLeft, _top + panelTop, _width, _height) ||
+		x != _left + panelLeft + 2) {
+		return;
+	}
+}
 void  TextBox::draw(Graphics graphics, int left, int top, int layer) {
 	if (layer != getZIndex()) {
 		return;
@@ -69,6 +77,9 @@ void  TextBox::draw(Graphics graphics, int left, int top, int layer) {
 	graphics.moveTo(left + 1 + _value.size(), top + 1);
 
 }
+
+
+
 /*
 void TextBox::mouseEvent(MOUSE_EVENT_RECORD mouseEvent) {
 
