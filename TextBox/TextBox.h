@@ -25,7 +25,6 @@ public:
 	}
 	string GetText() { return _value; }
 	void nowInFocus() {
-		//_graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
 		graphics.moveTo(_left + 2 + logicalPosition, _top + 2);
 		_graphics.setCursorVisibility(true);
 	}

@@ -62,9 +62,15 @@ void TextBox::keyDown(WORD code, CHAR c) {
 
 
 void TextBox::mousePressed(int x, int y, bool ifFirstButton) {
-	if (!ifFirstButton || !isInside(x, y, _left + panelLeft, _top + panelTop, _width, _height) ||
-		x != _left + panelLeft + 2) {
-		return;
+
+	if (isVisible()) {
+		//Control::setFocus(*this);
+		int pressed = x - _left - 1;
+		if (pressed >= _value.size()) {
+			return;
+		}
+
+		logicalPosition = pressed;
 	}
 }
 void  TextBox::draw(Graphics graphics, int left, int top, int layer) {
