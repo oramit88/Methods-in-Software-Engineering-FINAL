@@ -6,7 +6,6 @@ class Checklist : public Control
 
 ;
 protected:
-	//vector<size_t> _selectedIndices;
 	vector <string> _options;
 	vector <bool> optionsSelected;
 	int logicalPosition = 0;
@@ -28,8 +27,11 @@ public:
 		optionsSelected = vector<bool>(options.size());
 	}
 	 void nowInFocus() {
-	    _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
-		_graphics.setCursorVisibility(true);
+		 if (isVisible()) {
+		   _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
+			_graphics.setCursorVisibility(true);
+		 }
+	 
 	}
 
 	void SelectIndex(size_t index);
@@ -38,6 +40,13 @@ public:
 	 void draw(Graphics graphics, int left, int top, int layer);
 	 void keyDown(WORD code, CHAR chr);
 	 void mousePressed(int x, int y, bool ifFirstButton) ;
-	 bool canGetFocus() { return true; }
+	 bool canGetFocus() {
+		 if (isVisible()) {
+			return true;
+		 }
+		 else {
+			 return false;
+		 }
+	 }
 	~Checklist();
 };

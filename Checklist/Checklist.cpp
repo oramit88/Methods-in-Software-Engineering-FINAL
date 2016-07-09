@@ -14,40 +14,11 @@ void Checklist::draw(Graphics graphics, int left, int top, int layer) {	//TODO C
 		graphics.write(_options[i]);
 		graphics.moveTo(left + _left + 1, top + _top + i + 2);
 	}
-	/*
-	Component::draw();
-	CONSOLE_CURSOR_INFO cci = { 100, TRUE };
-	SetConsoleCursorInfo(_handle, &cci);
-	int vector_size = _data.size();
-	COORD temp = _position.getStartCord();
-	temp.X++;
-	temp.Y++;
-	SetConsoleCursorPosition(_handle, temp);
-
-	for (int i = 0; i < vector_size;i++){
-		if (i == 0) {
-	
-			DWORD wAttr;
-			if (needFirstYellow) {
-				 wAttr = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY;
-				SetConsoleTextAttribute(_handle, wAttr);
-				needFirstYellow = false;
-			}
-			cout << _data[i]<<endl;
-			wAttr = _textColor | _backgroundColor;
-			SetConsoleTextAttribute(_handle, wAttr);
-			temp.Y++;
-			
-		}
-		else {//next 
-			SetConsoleCursorPosition(_handle, temp);
-			cout << _data[i] << endl;
-			temp.Y++;
-		}
-}
-	*/
 }
 void Checklist::keyDown(WORD code, CHAR chr) {
+	if (!isVisible()) {
+		return;
+	}
 	if (code == 0x46) { // F key for debaging
 		string str = "";
 		vector<size_t> temp = GetSelectedIndices();
@@ -62,7 +33,6 @@ void Checklist::keyDown(WORD code, CHAR chr) {
 		case VK_UP: {
 			if (logicalPosition > 0) {
 				logicalPosition--;
-				//	 _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
 			}
 			else {
 				logicalPosition = _options.size()-1;
@@ -72,7 +42,6 @@ void Checklist::keyDown(WORD code, CHAR chr) {
 		case VK_DOWN:{
 			if (logicalPosition < _options.size() - 1) {
 				logicalPosition++;
-			//	 _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
 			}
 			else {
 				logicalPosition = 0;
@@ -91,14 +60,16 @@ void Checklist::mousePressed(int x, int y, bool ifFirstButton) {
 		x != _left + panelLeft + 2) {
 		return;
 	}
-//	debag(_graphics, "ok");
-//	Control::setFocus(this);
+	if (isVisible()) {
+	Control::setFocus(*this);
 	int pressed = y - panelTop - _top - 1;
 	if (pressed >= _options.size()) {
 		return;
 	}
 	logicalPosition = pressed;
 	selectOption();
+	}
+	
 }
 
 void Checklist::SelectIndex(size_t index){
@@ -120,34 +91,9 @@ void  Checklist::selectOption() {
 		_options[logicalPosition].replace(1, 1, "X");
 		optionsSelected[logicalPosition] = true;
 	}
-	/*
-	if (indexInVector()) {
-		_graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
-		_options[logicalPosition].replace(1, 1, " ");
-		for (int i = 0; i < _selectedIndices.size();i++) {// BAG 
-			if (_selectedIndices[i] == logicalPosition) {
-				_selectedIndices.erase(_selectedIndices.begin() + i);
-				return;
-			}
-		}
-	}
-	else {
-		_graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
-		_options[logicalPosition].replace(1, 1, "X");
-		_selectedIndices.push_back(logicalPosition);
-	}
-	*/
 }
 
 bool Checklist::indexInVector() {
-	/*
-	for (int i = 0; i < _selectedIndices.size();i++) {
-		if (_selectedIndices[i] == logicalPosition) {
-			return true;
-		}
-	}
-	return false;
-	*/
 	return optionsSelected[logicalPosition];
 }
 vector<size_t> Checklist::GetSelectedIndices() { 
