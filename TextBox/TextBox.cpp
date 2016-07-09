@@ -33,7 +33,7 @@ void TextBox::keyDown(WORD code, CHAR c) {
 		break;
 	}
 	case VK_LEFT: {
-		if (logicalPosition > 1) {
+		if (logicalPosition >= 1) {
 			logicalPosition--;
 			graphics.moveTo(_left + 1 + _value.size(), _top + 2);
 		}
@@ -43,7 +43,7 @@ void TextBox::keyDown(WORD code, CHAR c) {
 	case VK_BACK: {
 		if (logicalPosition  > 0) {
 			logicalPosition--;
-			_value.erase(logicalPosition - 1, 1);
+			_value.erase(logicalPosition , 1);
 		}
 		break;
 	}
@@ -65,7 +65,7 @@ void TextBox::mousePressed(int x, int y, bool ifFirstButton) {
 
 	if (isVisible()) {
 		//Control::setFocus(*this);
-		int pressed = x - _left - 1;
+		int pressed = x - _left - 2;
 		if (pressed >= _value.size()) {
 			return;
 		}

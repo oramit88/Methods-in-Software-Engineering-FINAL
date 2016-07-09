@@ -68,14 +68,14 @@ int main(int argc, char **argv)
 	tName.SetBorder(BorderType::Single);
 	main.AddControl(tName, 10, 2);
 	
-
+	*/
 	TextBox tAddress(30);
 	tAddress.SetText("221B Baker Street, London");
 	tAddress.SetBorder(BorderType::Single);
 	MyListener listener(tAddress);
 	main.AddControl(tAddress, 10, 5);
 	
-	
+	/*
 	ComboBox cCountry(20, { "Israel", "Great Britain", "United States" });
 	cCountry.SetSelectedIndex(1);
 	cCountry.SetBorder(BorderType::Single);
@@ -105,14 +105,14 @@ int main(int argc, char **argv)
 	msgBox.SetText("this is my msgBox");
 	msgBox.SetBorder(BorderType::Single);
 	main.AddControl(msgBox, 0, 10);
-	*/
+	
 	
 	NumericBox numBox(15, 0,20); //(width,minVal,maxVal)
 	numBox.SetValue(10);//set the current value
 	numBox.SetBorder(BorderType::Single);
 	main.AddControl(numBox, 0, 10);
-
-	Control::setFocus(main);
+	*/
+	Control::setFocus(tAddress);
 	EventEngine engine;
 	engine.run(main);
 	return 0;
