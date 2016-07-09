@@ -29,7 +29,7 @@ public:
 
 	static Control* getFocus() { return _inFocus; }
 
-	Control(int width, int height) :_width(width), _height(height), _top(0),_left(0){}
+	Control(int width, int height) :_width(width), _height(height), _top(0),_left(0),_isVisible(true){}
 	~Control() {};
 	static void setFocus(Control &control) {
 		_inFocus = &control;
@@ -64,6 +64,9 @@ public:
 	}
 	virtual void Hide() {
 		_isVisible = false;
+	}
+	bool isVisible() {
+		return _isVisible;
 	}
 
 

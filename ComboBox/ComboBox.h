@@ -1,39 +1,50 @@
 #pragma once
 #include "../Button/Button.h"
 #include "../Radiolist/Radiolist.h"
-
+#include "../Panel/Panel.h"
 struct DropdownButtonListener : public MouseListener {
-	DropdownButtonListener() {}
-	bool flag = false;
-	void MousePressed(int x, int y, bool isLeft){
-		if (flag) {
-			flag = false;
+	DropdownButtonListener(Radiolist &c, Button &b, vector<string> options) : _c(c), _b(b), _options(options){}
+
+	void MousePressed(int x, int y, bool isLeft) {
+		if (_c.isVisible()) {
+			int index = _c.GetSelectedIndex();
+			if (index != -1) {
+				_b.SetText(_options[index]);
+			}
+			_c.Hide();
 		}
 		else {
-			flag = true;
+			_c.Show();
 		}
 	}
+private:
+	Radiolist &_c;
+	Button &_b;
+	vector<string> _options;
 };
 
 
-class ComboBox : public Control {
+class ComboBox : public Panel {
 	Button dropdown;
 	Radiolist list;
 	DropdownButtonListener listener;
-	int panelLeft = 0;
-	int panelTop = 0;
 
 public:
-	ComboBox(int width, vector<string> options) :Control(width, 3 + options.size() + 2),
-		dropdown(width), list(options.size() + 2, width, options) {
+	ComboBox(int width, vector<string> options) :
+		Panel(width, 25),dropdown(width), list(options.size() + 2, width, options), listener(list, dropdown, options)
+	{
+		list.Hide();
 		dropdown.SetText(options[0]);
 		dropdown.AddListener(listener);
 		dropdown.SetBorder(BorderType::Single);
 		list.SetBorder(BorderType::Single);
+		AddControl(dropdown,0,0);
+		AddControl(list,0,1);
 	}
+	void SetSelectedIndex(size_t index) { list.SetSelecdetIndex(index); }
+	size_t GetSelectedIndex() { return list.GetSelectedIndex(); }
 	void mousePressed(int x, int y, bool ifFirstButton);
 	void draw(Graphics graphics, int left, int top, int layer);
-	void keyDown(WORD code, CHAR chr) {}//todo
-	bool canGetFocus() { return true; }
+	bool canGetFocus() { return false; }
 	~ComboBox();
 };
