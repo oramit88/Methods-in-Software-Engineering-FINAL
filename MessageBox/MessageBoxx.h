@@ -2,16 +2,18 @@
 #include "../SoftwareEng/Control.h"
 #include "../Button/Button.h"
 #include "../Panel/Panel.h"
+#include "../SoftwareEng/Graphics.h"
 
 class OnClickOk : public MouseListener
 {
 	public:
+		bool show = true;
 		OnClickOk() { }
 		void MousePressed(int x, int y, bool isLeft)
 		{
-			cout << "OK";
-			getchar();
-	
+			if (show) {
+				show = false;
+			}
 		}
 	private:
 };
@@ -19,10 +21,10 @@ class OnClickOk : public MouseListener
 class OnClickCancel : public MouseListener
 {
 public:
-	bool flag = true;
+	bool show = true;
 	void MousePressed(int x, int y, bool isLeft) {
-		if (flag) {
-			flag = false;
+		if (show) {
+			show = false;
 		}
 	}
 private:
@@ -36,28 +38,25 @@ class MessageBoxx :public Panel
 private:
 	string _title;
 	string _text;
-	OnClickOk ok;
-	OnClickCancel cancel;
+	OnClickOk ok; //ok and cancell listeners for the buttons
+	OnClickCancel cancell;
 protected:
 	Button _ok, _cancelled; 
 public:
-	MessageBoxx(int height, int width) :Panel(width, height), _ok(4), _cancelled(10) {
+	MessageBoxx(int height, int width) :Panel(width, height), _ok(4), _cancelled(9) {
 		setZIndex(4);
+		//adding the ok button
 		_ok.setZIndex(5);
 		_ok.SetText("OK");
-		
 		_ok.SetBorder(BorderType::Single);
 		_ok.AddListener(ok);
-		//_ok.setLeft(_left);
-		//_ok.setTop(_top + 3);
 		Panel::AddControl(_ok, getLeft(), getTop() + 1);
 
-		//_cancelled.setLeft(_left + _width - 1 - _cancelled.getWidth());
-		//_cancelled.setTop(_top + 3);
-		_cancelled.SetText("Cancel");
+		//adding the cancelled button
+		_cancelled.SetText("Cancell");
 		_cancelled.setZIndex(5);
 		_cancelled.SetBorder(BorderType::Single);
-		_cancelled.AddListener(cancel);
+		_cancelled.AddListener(cancell);
 		Panel::AddControl(_cancelled, getLeft()+3, getTop()+1 );
 	}
 	void draw(Graphics graphics, int left, int top, int layer);

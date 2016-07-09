@@ -31,19 +31,17 @@ private:
 };
 int main(int argc, char **argv)
 {
-	Panel main(60, 60);
-	main.SetBorder(BorderType::Single); //for testing
+	Panel main(60, 60); //panel(height,width)
+	main.SetBorder(BorderType::Single); //only for testing
 	
+										/*
 	NumericBox nAge(15, 18, 120);
 	nAge.SetValue(23);
 	nAge.SetBorder(BorderType::Single);
 
-
-
 	Label lName(20);
 	lName.SetText("Name: ");
 	main.AddControl(lName, 1, 2);
-	
 	
 	Label lAddress(20);
 	lAddress.SetText("Address:");
@@ -107,12 +105,12 @@ int main(int argc, char **argv)
 	msgBox.SetText("this is my msgBox");
 	msgBox.SetBorder(BorderType::Single);
 	main.AddControl(msgBox, 0, 10);
+	*/
 	
-	
-	//NumericBox numBox(15, 0,20); //(width,minVal,maxVal)
-	//numBox.SetValue(10);//set the current value
-	//numBox.SetBorder(BorderType::Single);
-	//main.AddControl(numBox, 0, 10);
+	NumericBox numBox(15, 0,20); //(width,minVal,maxVal)
+	numBox.SetValue(10);//set the current value
+	numBox.SetBorder(BorderType::Single);
+	main.AddControl(numBox, 0, 10);
 
 	Control::setFocus(main);
 	EventEngine engine;

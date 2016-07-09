@@ -36,25 +36,24 @@ private:
 protected:
 	Button _plus, _minus; 
 
-
 public:
 	NumericBox(int width, int min,int maxVal) :Panel(8, width), _plus(3), _minus(3),_minVal(min), _maxVal(maxVal){
 		setZIndex(4);
+		//creating the plus element
 		_plus.setZIndex(5);
 		_plus.SetText("+");
 		_plus.SetBorder(BorderType::Single);
 		_plus.AddListener(plus);
 		Panel::AddControl(_plus, getLeft(), getTop() + 1);
 		
+		//creating the minus element
 		_minus.SetText("-");
 		_minus.setZIndex(5);
 		_minus.SetBorder(BorderType::Single);
-
-		minus.currentNum = GetValue();
-
 		_minus.AddListener(minus);
 		Panel::AddControl(_minus, getLeft() + 3, getTop() + 1);
 	}
+	
 	void draw(Graphics graphics, int left, int top, int layer);
 	void SetValue(int val);
 	void SetMaxValue(int val) { _maxVal = val; }
