@@ -2,6 +2,8 @@
 
 
 void Checklist::draw(Graphics graphics, int left, int top, int layer) {	//TODO COLORS
+	
+	//_graphics.setForeground(Color::Blue);
 	if (layer != getZIndex()) {
 		return;
 	}
@@ -11,9 +13,25 @@ void Checklist::draw(Graphics graphics, int left, int top, int layer) {	//TODO C
 	int vector_size = _options.size();
 	graphics.moveTo(left + _left + 1 , top  + _top +1);
 	for (int i = 0;i < vector_size;i++) {
-		graphics.write(_options[i]);
-		graphics.moveTo(left + _left + 1, top + _top + i + 2);
+		_graphics.setBackground(Color::Black);
+		if (i == logicalPosition) {
+			if (Control::getFocus() == this) {
+			_graphics.setBackground(Color::Red);
+			}
+			graphics.write(_options[i]);
+			//graphics.write("\n");
+			graphics.moveTo(left + _left + 1, top + _top + i + 2);
+	
+		}
+		else{
+			_graphics.setBackground(Color::Black);
+			graphics.write(_options[i]);
+			//graphics.write("\n");
+			graphics.moveTo(left + _left + 1, top + _top + i + 2);
+		}
+	
 	}
+	_graphics.setBackground(Color::Black);
 }
 void Checklist::keyDown(WORD code, CHAR chr) {
 	if (!isVisible()) {
@@ -22,6 +40,7 @@ void Checklist::keyDown(WORD code, CHAR chr) {
 	switch (code) {
 		case VK_UP: {
 			if (logicalPosition > 0) {
+				//_graphics.setBackground(Color::Red);
 				logicalPosition--;
 			}
 			else {

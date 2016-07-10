@@ -64,6 +64,8 @@ int main(int argc, char **argv)
 	numBox.SetBorder(BorderType::Single);
 	main.AddControl(numBox, 0, 20);
 	
+	
+
 	Radiolist rSex(5, 15, { "Male", "Female" }); //(height, int width, vector<string> options)
 	rSex.SetBorder(BorderType::Single);
 	main.AddControl(rSex, 6, 10);

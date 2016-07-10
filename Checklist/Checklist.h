@@ -18,7 +18,7 @@ protected:
 	bool indexInVector();
 public:
 	Checklist(int height, int width, vector<string> options):Control(width,height),_options(options){
-		int size = _options.size();
+		int size = _options.size();	
 		for (int i = 0; i < size; i++) {
 			_options[i].insert(0, "[ ] ");
 		}
@@ -28,6 +28,7 @@ public:
 	}
 	 void nowInFocus() {
 		 if (isVisible()) {
+			
 		   _graphics.moveTo(panelLeft + _left + 2, panelTop + _top + logicalPosition + 1);
 			_graphics.setCursorVisibility(true);
 		 }
