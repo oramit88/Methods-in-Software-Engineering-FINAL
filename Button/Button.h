@@ -10,7 +10,7 @@ class Button:public Label
 public:
 	Button(int width):Label(width,""){}
 	void draw(Graphics graphics, int left, int top, int layer);
-	void SetValue(string value) { Label::SetText(value); }
+	void SetValue(string value) { Label::SetValue(value); }
 	bool canGetFocus() { return false; }
 	void AddListener(MouseListener &listener) { listeners.push_back(&listener); }
 	void mousePressed(int x, int y, bool ifFirstButton);

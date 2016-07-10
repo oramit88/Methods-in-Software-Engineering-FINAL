@@ -19,7 +19,7 @@ public:
 	virtual bool canGetFocus() { return true; }
 	string GetValue() { return _value; }
 	TextBox(int width) :Control(width, 3) {}
-	void SetText(string value) {
+	void SetValue(string value) {
 		_value = value;
 		logicalPosition = _value.size();
 	}

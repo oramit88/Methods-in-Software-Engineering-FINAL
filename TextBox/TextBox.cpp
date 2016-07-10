@@ -62,14 +62,12 @@ void TextBox::keyDown(WORD code, CHAR c) {
 
 
 void TextBox::mousePressed(int x, int y, bool ifFirstButton) {
-
 	if (isVisible()) {
-		//Control::setFocus(*this);
 		int pressed = x - _left - 2;
 		if (pressed >= _value.size()) {
 			return;
 		}
-
+		Control::setFocus(*this);
 		logicalPosition = pressed;
 	}
 }
@@ -83,59 +81,6 @@ void  TextBox::draw(Graphics graphics, int left, int top, int layer) {
 	graphics.moveTo(left + 1 + _value.size(), top + 1);
 
 }
-
-
-
-/*
-void TextBox::mouseEvent(MOUSE_EVENT_RECORD mouseEvent) {
-
-#ifndef MOUSE_HWHEELED
-#define MOUSE_HWHEELED 0x0008
-#endif
-
-switch (mouseEvent.dwEventFlags)
-{
-case 0:
-
-if (mouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED)
-{
-COORD mouseCoord = mouseEvent.dwMousePosition;
-int myPosi = _position.getStartCord().X + 1;
-if (mouseCoord.X - myPosi >-1 & maxSize - mouseCoord.X>-3) {
-SetConsoleCursorPosition(_handle, mouseCoord);
-}
-}
-else if (mouseEvent.dwButtonState == RIGHTMOST_BUTTON_PRESSED)
-{
-
-}
-else
-{
-
-}
-break;
-case DOUBLE_CLICK:
-
-break;
-case MOUSE_HWHEELED:
-
-break;
-case MOUSE_MOVED:
-
-break;
-case MOUSE_WHEELED:
-
-break;
-default:
-
-break;
-}
-}
-
-
-*/
-
-
 
 TextBox::~TextBox()
 {

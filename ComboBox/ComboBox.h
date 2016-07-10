@@ -9,7 +9,7 @@ struct DropdownButtonListener : public MouseListener {
 		if (_c.isVisible()) {
 			int index = _c.GetSelectedIndex();
 			if (index != -1) {
-				_b.SetText(_options[index]);
+				_b.SetValue(_options[index]);
 			}
 			_c.Hide();
 		}
@@ -33,8 +33,10 @@ public:
 	ComboBox(int width, vector<string> options) :
 		Panel(width, 25),dropdown(width), list(options.size() + 2, width, options), listener(list, dropdown, options)
 	{
+		dropdown.setZIndex(5);
 		list.Hide();
-		dropdown.SetText(options[0]);
+		list.setZIndex(5);
+		dropdown.SetValue(options[0]);
 		dropdown.AddListener(listener);
 		dropdown.SetBorder(BorderType::Single);
 		list.SetBorder(BorderType::Single);

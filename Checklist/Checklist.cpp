@@ -19,16 +19,6 @@ void Checklist::keyDown(WORD code, CHAR chr) {
 	if (!isVisible()) {
 		return;
 	}
-	if (code == 0x46) { // F key for debaging
-		string str = "";
-		vector<size_t> temp = GetSelectedIndices();
-	_graphics.moveTo(20, 20);
-		for (int i = 0; i < temp.size();i++) {
-			cout << temp[i] << endl;
-		}
-
-		getchar();
-	}
 	switch (code) {
 		case VK_UP: {
 			if (logicalPosition > 0) {
@@ -49,6 +39,10 @@ void Checklist::keyDown(WORD code, CHAR chr) {
 			break;
 		}
 		case VK_RETURN: {
+			selectOption();
+			break;
+		}
+		case VK_SPACE: {
 			selectOption();
 			break;
 		}

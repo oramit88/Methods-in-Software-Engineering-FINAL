@@ -6,13 +6,6 @@ Control* Control::_inFocus = nullptr;
 	 if (layer != getZIndex()) {
 		 return;
 	 }
-	//_isComponetVisible = true;
-	//SetConsoleTextAttribute(_handle, _textColor | _backgroundColor);
-	//int width, high;
-	//width = _position.getWidth();
-	//high = _position.getHeight();
-	//COORD c = _position.getStartCord();
-	//SetConsoleCursorPosition(_handle, c);
 	string borderCharHorizontal;
 	string borderCharVertical;
 	

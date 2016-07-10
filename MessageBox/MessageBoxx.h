@@ -44,17 +44,17 @@ protected:
 	Button _ok, _cancelled; 
 public:
 	MessageBoxx(int height, int width) :Panel(width, height), _ok(4), _cancelled(9) {
-		setZIndex(4);
+		setZIndex(3);
 		//adding the ok button
-		_ok.setZIndex(5);
-		_ok.SetText("OK");
+		_ok.setZIndex(4);
+		_ok.SetValue("OK");
 		_ok.SetBorder(BorderType::Single);
 		_ok.AddListener(ok);
 		Panel::AddControl(_ok, getLeft(), getTop() + 1);
 
 		//adding the cancelled button
-		_cancelled.SetText("Cancell");
-		_cancelled.setZIndex(5);
+		_cancelled.SetValue("Cancell");
+		_cancelled.setZIndex(4);
 		_cancelled.SetBorder(BorderType::Single);
 		_cancelled.AddListener(cancell);
 		Panel::AddControl(_cancelled, getLeft()+3, getTop()+1 );

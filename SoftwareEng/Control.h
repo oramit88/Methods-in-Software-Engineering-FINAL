@@ -11,7 +11,7 @@ enum class BackgroundColor { Red, Blue, Green, Purple, Teal, Yellow, White, Blac
 
 class Control
 {
-	int _zIndex = 1;
+	int _zIndex = 0;
 	bool _isVisible;
 	bool _isFocused;
 	ForegroundColor _foregroundColor;
@@ -34,6 +34,7 @@ public:
 	static void setFocus(Control &control) {
 		_inFocus = &control;
 		_inFocus->nowInFocus();
+		control.setZIndex(5);
 	}
 	int getZIndex() {
 		return _zIndex;
@@ -79,23 +80,5 @@ public:
 	virtual bool canGetFocus() = 0;
 	virtual void getAllControls(vector<Control*> *controls){ controls->push_back(this);}
 	virtual void nowInFocus(){}
-
-
-	/* for debaging*/
-	void debag(Graphics _graphics, int text) {
-		_graphics.moveTo(15, 15);
-		stringstream ss;
-		ss << text << "";
-		_graphics.write(ss.str());
-		getchar();
-	}
-	void debag(Graphics _graphics, string text) {
-		_graphics.moveTo(15, 15);
-		stringstream ss;
-		ss << text << "";
-		_graphics.write(ss.str());
-		getchar();
-	}
-
 };
 

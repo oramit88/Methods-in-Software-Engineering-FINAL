@@ -1,7 +1,5 @@
 #include "Label.h"
 
-
-
 void Label::draw(Graphics graphics, int left, int top, int layer) {
 	if (layer != getZIndex()) {
 		return;

@@ -10,13 +10,6 @@ public:
 	void SetSelecdetIndex(size_t index) { selectedPosition = index; }
 	~Radiolist();
 	bool canGetFocus() { return true; }
-	/*for debaging only*/
-	void keyDown(WORD code, CHAR chr) {
-		if (code == 0x46) { // F key for debaging
-			debag(_graphics, selectedPosition);
-		}
-		Checklist::keyDown(code,chr);
-	}
 };
 
 

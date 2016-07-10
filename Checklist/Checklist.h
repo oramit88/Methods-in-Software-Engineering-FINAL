@@ -35,6 +35,7 @@ public:
 	}
 
 	void SelectIndex(size_t index);
+
 	void DeselectIndex(size_t index);
 	vector<size_t> GetSelectedIndices();
 	 void draw(Graphics graphics, int left, int top, int layer);

@@ -38,16 +38,16 @@ protected:
 
 public:
 	NumericBox(int width, int min,int maxVal) :Panel(8, width), _plus(3), _minus(3),_minVal(min), _maxVal(maxVal){
-		setZIndex(4);
+		setZIndex(1);
 		//creating the plus element
 		_plus.setZIndex(5);
-		_plus.SetText("+");
+		_plus.SetValue("+");
 		_plus.SetBorder(BorderType::Single);
 		_plus.AddListener(plus);
 		Panel::AddControl(_plus, getLeft(), getTop() + 1);
 		
 		//creating the minus element
-		_minus.SetText("-");
+		_minus.SetValue("-");
 		_minus.setZIndex(5);
 		_minus.SetBorder(BorderType::Single);
 		_minus.AddListener(minus);
