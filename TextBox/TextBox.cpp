@@ -48,7 +48,6 @@ void TextBox::keyDown(WORD code, CHAR c) {
 		break;
 	}
 
-
 	case VK_DELETE: {
 		if (logicalPosition > 0) {
 
@@ -64,10 +63,12 @@ void TextBox::keyDown(WORD code, CHAR c) {
 void TextBox::mousePressed(int x, int y, bool ifFirstButton) {
 	if (isVisible()) {
 		int pressed = x - _left - 2;
-		if (pressed >= _value.size()) {
+		int yTest=y;
+		if (pressed >= _value.size()||(yTest!= _top + 2)) { //checking if the mouse is on the textbox.
 			return;
 		}
 		Control::setFocus(*this);
+
 		logicalPosition = pressed;
 	}
 }

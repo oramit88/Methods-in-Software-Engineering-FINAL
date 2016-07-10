@@ -30,8 +30,12 @@ private:
 };
 int main(int argc, char **argv)
 {
-	Panel main(60, 60); //panel(height,width)
-	main.SetBorder(BorderType::Single); //only for testing
+	Panel main(50, 70); //panel(height,width)
+	main.SetBorder(BorderType::Single); //for testing
+	
+	Label lInterests(20);
+	lInterests.SetValue("Label: Interests:");
+	main.AddControl(lInterests, 38, 17);
 	
 	Checklist clInterests(6, 15, { "Sports", "Books", "Movies" });
 	clInterests.SelectIndex(1);
@@ -43,10 +47,6 @@ int main(int argc, char **argv)
 	tAddress.SetBorder(BorderType::Single);
 	MyListener listener(tAddress);
 	main.AddControl(tAddress, 28, 10);	
-	
-	Label lInterests(20);
-	lInterests.SetValue("Label: Interests:");
-	main.AddControl(lInterests, 28, 14);
 
 	MessageBoxx msgBox(25, 8);
 	msgBox.SetTitle("msgBox TITLE:");
@@ -64,8 +64,6 @@ int main(int argc, char **argv)
 	numBox.SetBorder(BorderType::Single);
 	main.AddControl(numBox, 0, 20);
 	
-	
-
 	Radiolist rSex(5, 15, { "Male", "Female" }); //(height, int width, vector<string> options)
 	rSex.SetBorder(BorderType::Single);
 	main.AddControl(rSex, 6, 10);

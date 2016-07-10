@@ -1,7 +1,5 @@
 #include "MessageBoxx.h"
 
-
-
 MessageBoxx::~MessageBoxx()
 {
 }

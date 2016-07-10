@@ -1,7 +1,6 @@
 #pragma once
 #include "../SoftwareEng/Control.h"
 
-
 class TextBox :
 	public Control
 {
