@@ -40,7 +40,6 @@ void Checklist::keyDown(WORD code, CHAR chr) {
 	switch (code) {
 		case VK_UP: {
 			if (logicalPosition > 0) {
-				//_graphics.setBackground(Color::Red);
 				logicalPosition--;
 			}
 			else {
